@@ -79,7 +79,7 @@ The architecture is built on three main principles:
 ### Implementation Path
 
 <div align="center">
-  <img src="./docs/architecture/implementation-roadmap.svg" width="800" alt="bodyDFI Implementation Roadmap">
+  <img src="https://raw.githubusercontent.com/bodyDFI/body/master/assets/images/implementation-roadmap.svg" width="800" alt="bodyDFI Implementation Roadmap">
 </div>
 
 Our technical implementation follows these phases:
