@@ -44,7 +44,7 @@ bodyDFI connects users, developers, fitness professionals, and researchers throu
 bodyDFI follows a comprehensive architecture divided into several components:
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/bodyDFI/body/master/docs/architecture/core-architecture.png" alt="bodyDFI Core Architecture" width="800">
+  <img src="https://raw.githubusercontent.com/bodyDFI/body/master/docs/architecture/core-architecture.svg" width="800" alt="bodyDFI Core Architecture">
 </div>
 
 The architecture is built on three main principles:
@@ -54,7 +54,9 @@ The architecture is built on three main principles:
 
 ### System Components
 
-![bodyDFI Architecture](docs/architecture/architecture-diagram.png)
+<div align="center">
+  <img src="https://raw.githubusercontent.com/bodyDFI/body/master/docs/architecture/architecture-diagram.svg" width="800" alt="bodyDFI Architecture">
+</div>
 
 #### Hardware Layer
 
@@ -77,7 +79,7 @@ The architecture is built on three main principles:
 ### Implementation Path
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/bodyDFI/body/master/docs/architecture/implementation-roadmap.png" alt="bodyDFI Implementation Roadmap" width="800">
+  <img src="https://raw.githubusercontent.com/bodyDFI/body/master/docs/architecture/implementation-roadmap.svg" width="800" alt="bodyDFI Implementation Roadmap">
 </div>
 
 Our technical implementation follows these phases:
