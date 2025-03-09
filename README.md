@@ -78,10 +78,6 @@ The architecture is built on three main principles:
 
 ### Implementation Path
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/bodyDFI/body/master/assets/logos/implementation-roadmap.svg" width="800" height="500" alt="bodyDFI Implementation Roadmap">
-</div>
-
 Our technical implementation follows these phases:
 
 1. **Phase 1 (Completed)**: Hardware sensor development and firmware implementation
