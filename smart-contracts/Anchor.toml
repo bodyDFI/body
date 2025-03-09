@@ -1,0 +1,27 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+bodydfi = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+
+[workspace]
+members = [
+  "programs/bodydfi"
+]
+
+[workspace.dependencies]
+anchor-lang = "0.28.0"
+
+[test]
+startup_wait = 10000 

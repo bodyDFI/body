@@ -1,0 +1,118 @@
+version: '3.8'
+
+services:
+  # Main application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      - "3000:3000"
+    volumes:
+      - app_logs:/app/logs
+      - app_uploads:/app/backend/uploads
+      - app_keys:/app/keys
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb://mongo:27017/bodydfi
+      - REDIS_URI=redis://redis:6379
+      - CORS_ORIGIN=https://bodydfi.com
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - SOLANA_RPC_URL=${SOLANA_RPC_URL}
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # MongoDB database
+  mongo:
+    image: mongo:5
+    restart: unless-stopped
+    volumes:
+      - mongo_data:/data/db
+    command: --wiredTigerCacheSizeGB 1.5
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+    networks:
+      - app_network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo mongo:27017/test --quiet
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Redis cache
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Backup service
+  backup:
+    image: alpine:latest
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    volumes:
+      - mongo_data:/data/db:ro
+      - backups:/backups
+    command: |
+      sh -c 'apk add --no-cache mongodump cron tzdata && 
+             echo "0 3 * * * mongodump --host mongo --out /backups/\$$(date +\%Y\%m\%d)" > /var/spool/cron/crontabs/root && 
+             echo "0 4 * * * find /backups -type d -mtime +7 -exec rm -rf {} \;" >> /var/spool/cron/crontabs/root && 
+             crond -f'
+    networks:
+      - app_network
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/ssl
+      - app_uploads:/var/www/uploads
+    networks:
+      - app_network
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  app_logs:
+  app_uploads:
+  app_keys:
+  mongo_data:
+  redis_data:
+  backups:
+
+networks:
+  app_network:
+    driver: bridge
