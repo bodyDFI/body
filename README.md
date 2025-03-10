@@ -18,15 +18,15 @@ bodyDFI connects users, developers, fitness professionals, and researchers throu
 
 | Component | Status | Progress |
 |-----------|--------|----------|
-| Hardware Sensors | Beta Testing | 75% |
-| Mobile Application | Beta | 80% |
-| Web Dashboard | Alpha | 60% |
-| Backend Services | Beta | 85% |
-| Blockchain Integration | Alpha | 50% |
-| Data Marketplace | Alpha | 40% |
-| Token Economy | Design | 30% |
+| Hardware Sensors | Beta Testing | 80% |
+| Mobile Application | Beta | 85% |
+| Web Dashboard | Beta | 75% |
+| Backend Services | Beta | 90% |
+| Blockchain Integration | Beta | 65% |
+| Data Marketplace | Alpha | 50% |
+| Token Economy | Alpha | 40% |
 
-**Current Release**: v1.01-beta - Focus on sensor data collection and mobile integration
+**Current Release**: v1.0.5 - Focus on code organization, documentation, and project branding
 
 ### Key Features
 
