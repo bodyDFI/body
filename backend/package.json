@@ -1,6 +1,6 @@
 {
   "name": "bodydfi-backend",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "bodyDFI platform backend services",
   "main": "src/server.js",
   "scripts": {

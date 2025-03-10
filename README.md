@@ -26,7 +26,7 @@ bodyDFI connects users, developers, fitness professionals, and researchers throu
 | Data Marketplace | Alpha | 50% |
 | Token Economy | Alpha | 40% |
 
-**Current Release**: v1.0.5 - Focus on code organization, documentation, and project branding
+**Current Release**: bodyDFI beta V1.06 - Code organization and internationalization
 
 ### Key Features
 

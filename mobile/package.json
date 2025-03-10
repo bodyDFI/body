@@ -1,6 +1,6 @@
 {
   "name": "bodydfi-mobile",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "bodyDFI platform mobile application",
   "private": true,
   "scripts": {

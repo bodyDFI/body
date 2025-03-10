@@ -1,0 +1,11 @@
+{
+  "welcome": "欢迎使用bodyDFI",
+  "success": "成功",
+  "error": "错误",
+  "notFound": "资源未找到",
+  "unauthorized": "未经授权的访问",
+  "forbidden": "访问被禁止",
+  "serverError": "内部服务器错误",
+  "validationError": "验证错误",
+  "version": "bodyDFI beta V1.06"
+} 

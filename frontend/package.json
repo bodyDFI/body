@@ -1,6 +1,6 @@
 {
   "name": "bodydfi-frontend",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "bodyDFI platform frontend web application",
   "private": true,
   "dependencies": {

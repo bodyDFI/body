@@ -1,0 +1,11 @@
+{
+  "welcome": "Welcome to bodyDFI",
+  "success": "Success",
+  "error": "Error",
+  "notFound": "Resource not found",
+  "unauthorized": "Unauthorized access",
+  "forbidden": "Access forbidden",
+  "serverError": "Internal server error",
+  "validationError": "Validation error",
+  "version": "bodyDFI beta V1.06"
+} 
